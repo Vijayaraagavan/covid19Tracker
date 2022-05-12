@@ -14,6 +14,7 @@
   
     <DataTitles :text="title" :dataDate="dataDate" />
     <DataBoxes :stat="stats" />
+    <CountrySelect :countries="countries" @getCountry="getCountryData" />
   </div>
 </template>
 
@@ -21,9 +22,11 @@
 // import {bus} from '../main'
 import DataBoxes from "./DataBoxes";
 import DataTitles from "./DataTitle.vue";
+import CountrySelect from "./CountrySelect"
+
 export default {
   name: "ContentView",
-  components: { DataTitles, DataBoxes },
+  components: { DataTitles, DataBoxes, CountrySelect },
   data() {
     return {
       loading: false,
@@ -52,6 +55,12 @@ export default {
     // console.log("store is ", this.$store.state.covidData);
   },
   methods: {
+    getCountryData(country) {
+      console.log(country.CountryCode)
+      this.stats = country
+      this.title = country.Country
+    },
+
     async fetchCovidData() {
       this.loading = true;
       const res = await fetch("https://api.covid19api.com/summary");
@@ -78,4 +87,5 @@ export default {
     left: 50%;
     position: absolute;
 } */
+/* const country = this.countries.find((item) => item.ID === this.selected); */
 </style>

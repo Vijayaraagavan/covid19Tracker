@@ -6,24 +6,24 @@
           <h3 class="text-3xl text-blue-900 font-bold mb-4">Cases</h3>
           <div class="text-2xl mb-4">
               <span class="font-bold">New: </span>
-              {{ stat.NewConfirmed}}
+              {{ numberWithCommas(stat.NewConfirmed) }}
           </div>
           <div class="text-2xl mb-4">
               <span class="font-bold">Total: </span>
-              {{ stat.TotalConfirmed}}
+              {{ numberWithCommas(stat.TotalConfirmed) }}
           </div>
       </div>
 
       <!-- box 2 -->
       <div class="shadow-md bg-blue-100 p-10 text-center rounded">
-          <h3 class="text-3xl text-blue-900 font-bold mb-4">Cases</h3>
+          <h3 class="text-3xl text-blue-900 font-bold mb-4">Death</h3>
           <div class="text-2xl mb-4">
               <span class="font-bold">New: </span>
-              {{ stat.NewDeaths}}
+              {{ numberWithCommas(stat.NewDeaths) }}
           </div>
           <div class="text-2xl mb-4">
               <span class="font-bold">Total: </span>
-              {{ stat.TotalDeaths}}
+              {{ numberWithCommas(stat.TotalDeaths) }}
           </div>
       </div>
 
@@ -52,6 +52,11 @@ export default {
         // this.$store.commit('increment')
         // this.Count = this.$store.state.count
         // console.log("new data is :", this.stat)
+    },
+    methods: {
+        numberWithCommas(x) {
+            return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g,',')
+        }
     }
 
 }
