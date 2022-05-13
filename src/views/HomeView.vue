@@ -1,5 +1,6 @@
 <template>
   <div>
+      <HeaderView />
       <button @click="fetchCovidData">Get info</button>
   </div>
     <main v-if="loading" class="flex flex-col justify-center align-center text-center">
@@ -10,7 +11,6 @@
     </main>
 
 <div v-if="doneFetching">
-
   
     <DataTitles :text="title" :dataDate="dataDate" />
     <DataBoxes :stat="stats" />
@@ -20,13 +20,15 @@
 
 <script>
 // import {bus} from '../main'
-import DataBoxes from "./DataBoxes";
-import DataTitles from "./DataTitle.vue";
-import CountrySelect from "./CountrySelect"
+
+import DataBoxes from "../components/DataBoxes.vue"
+import DataTitles from "../components/DataTitle.vue"
+import CountrySelect from "../components/CountrySelect"
+import HeaderView from '../components/HeaderView.vue'
 
 export default {
   name: "ContentView",
-  components: { DataTitles, DataBoxes, CountrySelect },
+  components: { DataTitles, DataBoxes, CountrySelect, HeaderView },
   data() {
     return {
       loading: false,

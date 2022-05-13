@@ -49,6 +49,7 @@ export default {
         this.emitter.on("endstats", isOpen => {
             this.NewConfirmed = isOpen
         })
+        console.log("box is mounted")
         // this.$store.commit('increment')
         // this.Count = this.$store.state.count
         // console.log("new data is :", this.stat)

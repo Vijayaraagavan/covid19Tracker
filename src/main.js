@@ -2,6 +2,7 @@ import { createApp } from 'vue'
 import mitt from 'mitt'
 import App from './App.vue'
 import './assets/tailwind.css'
+import router from './router/index'
 // import { createStore } from 'vuex'
 
 // const store = createStore({
@@ -26,4 +27,4 @@ const emitter = mitt()
 const app = createApp(App)
 app.config.globalProperties.emitter = emitter
 // app.use(store)
-app.mount('#app')
+app.use(router).mount('#app')

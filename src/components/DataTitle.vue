@@ -22,7 +22,7 @@ export default {
         console.log(this.text.NewConfirmed)
     },
     mounted() {
-        console.log("mounted here")
+        console.log("title is mounted")
     },
     computed: {
         timestamp: function() {
