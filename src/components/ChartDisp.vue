@@ -1,6 +1,6 @@
 <template>
 <button @click="start">click</button>
-  <div id="synced-charts">
+  <!-- <div id="synced-charts">
       <div id="chart-line">
           <div id="chart-area">
 
@@ -11,150 +11,55 @@
 
           </div>
       </div>
+  </div> -->
+  <div>
+    <apexchart width="500" type="bar" :options="options" :series="series"></apexchart>
   </div>
+
 </template>
 
 <script>
-import 'apexcharts'
 export default {
+  name: "ChartDisp",
+  data() {
+    return {
+      options: {
+          chart: {
+            id: 'vuechart-example'
+          },
+          xaxis: {
+            categories: [1991, 1992, 1993, 1994, 1995, 1996, 1997, 1998]
+          }
+      },
+      theme: {
+        palette: 'palette2'
+      },
+      series: [{
+        name: 'series-1',
+        data: [30, 40, 45, 50, 49, 60, 70, 91]
+      },
+      {
+        name: 'series-2',
+        data: [33, 59, 45, 11, 101, 78, 44, 94]
+      }]
+    }
+    },
     methods: {
         start() {
-            // var optionsLine = {
-            // series: [{
-            //     data: [...]
-            // }],
-            // colors: ['#00E396'],
-            // chart: {
-            //     id: 'line-1',
-            //     group: 'social',
-            //     type: 'line',
-            // },
-            // yaxis: {
-            //     labels: {
-            //     minWidth: 40
-            //     }
-            // }
-            // };
-            // var chart = new ApexCharts(el, optionsLine)
-            // chart.render()
-
-            // var optionsArea = {
-            // series: [{
-            //     data: [...]
-            // }],
-            // colors: ['#008FFB'],
-            // chart: {
-            //     id: 'area-1',
-            //     group: 'social',
-            //     type: 'area',
-            // },
-            // yaxis: {
-            //     labels: {
-            //     minWidth: 40
-            //     }
-            // }
-            // };
-            // var chart = new ApexCharts(el, optionsArea)
-            // chart.render()
-            var options = {
-          series: [{
-          data: generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 20, {
-            min: 10,
-            max: 60
-          })
-        }],
-          chart: {
-          id: 'fb',
-          group: 'social',
-          type: 'line',
-          height: 160
-        },
-        colors: ['#008FFB']
-        };
-
-        var chart = new ApexCharts(document.querySelector("#chart-line"), options);
-        chart.render();
-      
-        var optionsLine2 = {
-          series: [{
-          data: generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 20, {
-            min: 10,
-            max: 30
-          })
-        }],
-          chart: {
-          id: 'tw',
-          group: 'social',
-          type: 'line',
-          height: 160
-        },
-        colors: ['#546E7A']
-        };
-
-        var chartLine2 = new ApexCharts(document.querySelector("#chart-line2"), optionsLine2);
-        chartLine2.render();
-      
-        var optionsArea = {
-          series: [{
-          data: generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 20, {
-            min: 10,
-            max: 60
-          })
-        }],
-          chart: {
-          id: 'yt',
-          group: 'social',
-          type: 'area',
-          height: 160
-        },
-        colors: ['#00E396']
-        };
-
-        var chartArea = new ApexCharts(document.querySelector("#chart-area"), optionsArea);
-        chartArea.render();
-      
-        var optionsSmall = {
-          series: [{
-          data: generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 20, {
-            min: 10,
-            max: 60
-          })
-        }],
-          chart: {
-          id: 'ig',
-          group: 'social',
-          type: 'area',
-          height: 160,
-          width: 300
-        },
-        colors: ['#008FFB']
-        };
-
-        var chartSmall = new ApexCharts(document.querySelector("#chart-small"), optionsSmall);
-        chartSmall.render();
-      
-        var optionsSmall2 = {
-          series: [{
-          data: generateDayWiseTimeSeries(new Date('11 Feb 2017').getTime(), 20, {
-            min: 10,
-            max: 60
-          })
-        }],
-          chart: {
-          id: 'li',
-          group: 'social',
-          type: 'area',
-          height: 160,
-          width: 300
-        },
-        colors: ['#546E7A']
-        };
-
-        var chartSmall2 = new ApexCharts(document.querySelector("#chart-small2"), optionsSmall2);
-        chartSmall2.render();
-        }
-    }
+            // var options = {
+  // chart: {
+  //   type: 'line'
+  // },
+  // series: [{
+  //   name: 'sales',
+  //   data: [30,40,35,50,49,60,70,91,125]
+  // }],
+  // xaxis: {
+  //   categories: [1991,1992,1993,1994,1995,1996,1997, 1998,1999]
+  // }
+}}
 }
+
 </script>
 
 <style>
